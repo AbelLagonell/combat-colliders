@@ -245,7 +245,9 @@ func _sub_frame():
 
 
 # Utility for getting when a hurtbox goes into a hitbox
-func _on_area_shape_entered(area: Area2D, area_shape_index: int):
+func _on_area_shape_entered(
+	_area_rid: RID, area: Area2D, area_shape_index: int, _local_shape_index: int
+):
 	var collider = area.get_child(area_shape_index)
 	if collider is HitBoxShape:
 		damage_taken.emit(collider.damage)
